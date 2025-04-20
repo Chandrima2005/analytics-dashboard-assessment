@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EV Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="background-overlay"></div>
+  <div class="top-left-half-circle"></div>
+
+  <section class="hero-section">
+    <nav class="navbar-right">
+      <!-- Replace with your nav links -->
+      <a href="./index.html">Home</a>
+      <a href="#Contact">About</a>
+      <a href="#about">Dashboard</a>
+      <a href="#explore-ev">Find EV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hero-content">
+      <h1><span>Electric Vehicle</span> <span class="highlight">Dashboard</span></h1>
+      <p>Explore comprehensive EV data, trends, and insights to make informed decisions</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-blue">Explore Dashboard</a>
+        <a href="#explore-ev" class="btn btn-outline">Find Your EV</a>
+      </div>  
+    </div>
+    <div class="scroll-indicator">
+        <span class="arrow">↑ scroll to see more...</span>
+      </div>
+      
+  </section>
+  <section class="main-section">
+  <!-- Welcome Section -->
+  <!-- About Section -->
+  <section class="dashboard-section" id="Contact">
+    <header class="section logo">
+        <h1>Welcome to Dashboard</h1>
+      </header>
+    <div class="dashboard-content">
+      <div class="dashboard-text">
+        <div class="dashboard-box">
+          <p>
+            The EV Dashboard website provides a clean and interactive interface to visualize key insights about electric vehicle (EV) data. 
+            It showcases data such as vehicle count, state-wise distribution, growth trends, and EV adoption over time. 
+            The dashboard includes informative charts and maps for better understanding of EV population dynamics. 
+            It is designed to be user-friendly and responsive, making data exploration intuitive. 
+            This tool is ideal for researchers, policymakers, and enthusiasts interested in tracking India's EV ecosystem.
+          </p>
+        </div>
+      </div>
+      <div class="dashboard-gif" id="Charging-Map">
+        <img src="https://b.cogcms.co.uk/media/03fd1wag/ev-charging.gif" alt="EV Charging Animation" />
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- Graph Buttons Section -->
+  <section id="about" class="section">
+    <h1>Explore EV Data and Click on the options to Show more details</h1>
+    <div class="textbox-container">
+      <div class="textbox-group">
+        <div class="textbox">
+          <h2><a href="#" id="ev-manufacturers-link">Top 5 EV Manufacturers <br> (Click here)</a></h2>
+        </div>
+        <div class="textbox">
+          <h2><a href="#" id="cafv-link">Clean Alternative Fuel Vehicle (CAFV) Eligibility <br> (Click here)</a></h2>
+        </div>
+        <div class="textbox">
+          <h2><a href="#" id="ev-type-link">EV Type Counts <br> (Click here)</a></h2>
+        </div>
+      </div>
+
+      <div class="textbox-group">
+        <div class="textbox">
+            <h2><a href="#" id="ev-counties-link">Top 5 Counties by EV Count <br> (Click here)</a></h2>
+          </div>       
+          <div class="textbox">
+            <h2><a href="#" id="ev-models-link">EV Models in Different Years <br> (Click here)</a></h2>
+          </div>
+          
+        <div class="textbox">
+            <h2><a href="#" id="market-trends-link">Market Trends <br> (Click here)</a></h2>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+
+ <!-- Graph Display Section -->
+ <section id="graph-section" class="section">
+  <h1 id="graph-title">Top 5 EV Manufacturers</h1>
+  <div class="graph-box">
+    <canvas id="evChart" class="responsive-chart"></canvas>
+  </div>
+  <button id="name-button" class="transparent-button"><a href="#about">Explore other graphs</a></button>
+</section>
+
+<!-- Explore EV Choice Section -->
+<section id="explore-ev" class="section">
+    <h1>Explore Your Choice of EV</h1>
+    <div class="container">
+  
+      <div class="dropdowns">
+        <div>
+          <label for="country">Select Country:</label>
+          <select id="country">
+            <option value="">-- Choose Country --</option>
+          </select>
+        </div>
+  
+        <div>
+          <label for="company">Select Company:</label>
+          <select id="company">
+            <option value="">-- Choose Company --</option>
+          </select>
+        </div>
+  
+        <div>
+          <label for="evType">Select EV Type:</label>
+          <select id="evType">
+            <option value="">-- Choose EV Type --</option>
+          </select>
+        </div>
+      </div>
+  
+      <div id="result" class="result"></div>
+    </div>
+  </section>
+  <!-- EV Savings Calculator Section -->
+  <section id="ev-savings">
+    <div class="ev-container">
+      <h2>Calculate Savings</h2>
+  
+      <div class="ev-grid">
+        <div class="ev-slider">
+          <p>Annual Mileage</p>
+          <input type="range" min="5000" max="30000" step="1000" value="12000" id="mileageSlider">
+          <p id="mileageValue">12,000 miles</p>
+        </div>
+  
+        <div class="ev-slider">
+          <p>Gas Price ($/gallon)</p>
+          <input type="range" min="2" max="6" step="0.1" value="3.5" id="gasPriceSlider">
+          <p id="gasPriceValue">$3.50</p>
+        </div>
+  
+        <div class="ev-slider">
+          <p>Electricity Price (¢/kWh)</p>
+          <input type="range" min="5" max="30" step="1" value="12" id="electricPriceSlider">
+          <p id="electricPriceValue">12¢</p>
+        </div>
+  
+        <div class="ev-slider">
+          <p>Gas Car MPG</p>
+          <input type="range" min="10" max="50" step="1" value="25" id="mpgSlider">
+          <p id="mpgValue">25 MPG</p>
+        </div>
+      </div>
+  
+      <div class="ev-results">
+        <div class="ev-box">
+          <h3>Annual Fuel Savings</h3>
+          <p id="annualSavings">$0</p>
+        </div>
+        <div class="ev-box">
+          <h3>5-Year Savings</h3>
+          <p id="fiveYearSavings">$0</p>
+        </div>
+        <div class="ev-box">
+          <h3>CO₂ Reduction</h3>
+          <p id="co2Reduction">0 tons/year</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <div class="contact-form">
+        <h2>Connect With Us</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <input type="text" placeholder="Subject" />
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+  </section>
+  
+  
+  
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#Contact">About</a></li>
+            <li><a href="#about">Dashboard</a></li>
+            <li><a href="#explore-ev">Find EV</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">EV Guide</a></li>
+            <li><a href="#Charging-Map">Charging Map</a></li>
+            <li><a href="#">Tax Incentives</a></li>
+            <li><a href="#">EV News</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  </footer>
+  </section>
+
+  <!-- External Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
+
